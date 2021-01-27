@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     
     private float gravityValue = -9.81f;
+    private float chargeTime = 0f;
   
     // Update is called once per frame
     void Update()
@@ -35,7 +36,12 @@ public class PlayerController : MonoBehaviour
         
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * (speed * Time.deltaTime));
-        
-        if( Input.GetButtonUp("Fire1")) arrowController.SpawnArrow();
+
+        if (Input.GetAxis("Fire1") != 0) chargeTime += Time.deltaTime;
+        if (Input.GetButtonUp("Fire1"))
+        {
+            arrowController.SpawnArrow(chargeTime * 500);
+            chargeTime = 0;
+        }
     }
 }
