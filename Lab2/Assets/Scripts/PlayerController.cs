@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Controllers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private ArrowController arrowController =default;
     [SerializeField] private CharacterController controller;
     [SerializeField] public float speed = 10f;
     [SerializeField] public float jumpHeight = 0.2f;
@@ -26,8 +28,6 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(move * (Time.deltaTime * speed));
         
-        if (move != Vector3.zero) gameObject.transform.forward = move;
-        
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -35,5 +35,7 @@ public class PlayerController : MonoBehaviour
         
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * (speed * Time.deltaTime));
+        
+        if( Input.GetButtonUp("Fire1")) arrowController.SpawnArrow();
     }
 }
