@@ -10,8 +10,6 @@ namespace Controllers {
         
         public void SpawnArrow(float forceModifier)
         {
-            forceModifier = Mathf.Clamp(forceModifier, 20, 700);
-                
             GameObject spawnedArrow =
                 Instantiate(arrowPrefab, arrowOrigin.position, arrowOrigin.rotation , arrowsParent);
             spawnedArrow.GetComponent<Rigidbody>().AddForce(arrowDirection.forward * forceModifier);
