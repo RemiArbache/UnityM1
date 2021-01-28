@@ -46,9 +46,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Fire1") != 0)
         {
             chargeTime += Time.deltaTime * 500;
-            chargeTime = Mathf.Clamp(chargeTime, 20, 700);
+            chargeTime = Mathf.Clamp(chargeTime, 20, 500);
             
-            bowObject.localScale = new Vector3(0.3f + chargeTime/800f,0.5f,0.5f);
+            bowObject.localScale = new Vector3(0.3f + chargeTime/600f,0.5f,0.5f);
             bowObject.localRotation = Quaternion.Euler(-50f - (40f * chargeTime/700f) ,0f,90f);
         }
         
