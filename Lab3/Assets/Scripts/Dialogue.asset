@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5b0551c713b4e4584e264811de4ca0, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - It's the first day at school, a stressful day for most students. # Narrator
+  - I really don't like going to school, I wish I could escape it # Little Girl
+  - "Your heart is pure, and I have been summoned # D\u0335\u034B\u034B\u030B\u031B\u0352\u0305\u0323\u0353\u033AE\u0334\u0313\u0314\u030F\u0339\u031D\u035AI\u0334\u0314\u0344\u0301\u035D\u031A\u0331\u032E\u032F\u033AT\u0338\u0312\u0303\u0318\u0330\u034D\u031F\u033BY\u0334\u0343\u033E\u033B\u0349"
+  - "Express your true wish and it shall be realized # D\u0335\u034B\u034B\u030B\u031B\u0352\u0305\u0323\u0353\u033AE\u0334\u0313\u0314\u030F\u0339\u031D\u035AI\u0334\u0314\u0344\u0301\u035D\u031A\u0331\u032E\u032F\u033AT\u0338\u0312\u0303\u0318\u0330\u034D\u031F\u033BY\u0334\u0343\u033E\u033B\u0349"
+  - uuuuuuuuh, I'd like to skip school ?# Little Girl
+  - "That is amenable # D\u0335\u034B\u034B\u030B\u031B\u0352\u0305\u0323\u0353\u033AE\u0334\u0313\u0314\u030F\u0339\u031D\u035AI\u0334\u0314\u0344\u0301\u035D\u031A\u0331\u032E\u032F\u033AT\u0338\u0312\u0303\u0318\u0330\u034D\u031F\u033BY\u0334\u0343\u033E\u033B\u0349"
+  - "... #  D\u0335\u034B\u034B\u030B\u031B\u0352\u0305\u0323\u0353\u033AE\u0334\u0313\u0314\u030F\u0339\u031D\u035AI\u0334\u0314\u0344\u0301\u035D\u031A\u0331\u032E\u032F\u033AT\u0338\u0312\u0303\u0318\u0330\u034D\u031F\u033BY\u0334\u0343\u033E\u033B\u0349"
+  - "And so it is. #  D\u0335\u034B\u034B\u030B\u031B\u0352\u0305\u0323\u0353\u033AE\u0334\u0313\u0314\u030F\u0339\u031D\u035AI\u0334\u0314\u0344\u0301\u035D\u031A\u0331\u032E\u032F\u033AT\u0338\u0312\u0303\u0318\u0330\u034D\u031F\u033BY\u0334\u0343\u033E\u033B\u0349"
+  - The end # .
+  shownCharacters:
+  - 0#0
+  - 1#0
+  - 1#1
+  - 1#1
+  - 1#1
+  - 1#1
+  - 0#1
+  - 0#1
+  - 0#0
