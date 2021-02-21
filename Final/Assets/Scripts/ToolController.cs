@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -11,9 +12,10 @@ public class ToolController : MonoBehaviour
     private Transform _transform;
     private Transform _cameraTransform;
     private bool hitSomething = false;
+        
+    Interactable lastSeen = null;
 
     [SerializeField] private float maxRange;
-    private BoxInteract lastSeen = null;
 
     private void Awake()
     {
@@ -31,12 +33,29 @@ public class ToolController : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, maxRange) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
         {
-            lastSeen = hit.transform.gameObject.GetComponent<BoxInteract>();
-            lastSeen.isInteractable = true;
-            hitSomething = true;
+            switch (hit.transform.gameObject.tag)
+            {
+                case "CubeInteractable":
+                {
+                    lastSeen = hit.transform.gameObject.GetComponent<BoxInteract>();
+                    lastSeen.isInteractable = true;
+                    hitSomething = true;
+                    break;
+                }
+                case "SwitchInteractable":
+                {
+                    lastSeen = hit.transform.gameObject.GetComponent<SwitchInteract>();
+                    lastSeen.isInteractable = true;
+                    hitSomething = true;
+                    break;
+                }
+            }
+
         }
         else if(hitSomething)
         {
+            // Null Pointer Exception impossible
+            // Check by adding '  && lastSeen != null ' in if condition just above
             lastSeen.isInteractable = false;
         }
         
