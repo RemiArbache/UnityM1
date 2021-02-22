@@ -1,43 +1,40 @@
 using System.Collections;
 using UnityEngine;
 
-namespace DefaultNamespace
+public class SwitchInteract : Interactable
 {
-    public class SwitchInteract : Interactable
-    {
-        private Outline _outline;
-        [SerializeField] private AudioSource switchAudioSource;
-        private bool onCooldown = false;
+    private Outline _outline;
+    [SerializeField] private AudioSource switchAudioSource;
+    private bool _onCooldown = false;
         
-        private void Awake()
-        {
-            _outline = transform.GetComponent<Outline>();
-        }
+    private void Awake()
+    {
+        _outline = transform.GetComponent<Outline>();
+    }
 
-        private IEnumerator pressEffect()
-        {
+    private IEnumerator PressEffect()
+    {
 
-            switchAudioSource.Play();
-            onCooldown = true;
-            yield return new WaitForSeconds(1f);
-            onCooldown = false;
+        switchAudioSource.Play();
+        _onCooldown = true;
+        yield return new WaitForSeconds(1f);
+        _onCooldown = false;
 
-        } 
+    } 
 
-        private void press()
-        {
-            StartCoroutine (pressEffect());
+    private void Press()
+    {
+        StartCoroutine (PressEffect());
             
-        }
+    }
 
-        void Update()
+    void Update()
+    {
+        if (isInteractable && !_onCooldown)
         {
-            if (isInteractable && !onCooldown)
-            {
-                _outline.OutlineWidth = 10f;
-                if (Input.GetMouseButtonUp(1)) press();
-            }
-            else _outline.OutlineWidth = 0f;
+            _outline.OutlineWidth = 10f;
+            if (Input.GetMouseButtonUp(1)) Press();
         }
+        else _outline.OutlineWidth = 0f;
     }
 }

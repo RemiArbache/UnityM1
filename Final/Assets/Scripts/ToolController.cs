@@ -1,26 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ToolController : MonoBehaviour
 {
     [SerializeField] private Transform toolTip;
-    [SerializeField] private Camera camera;
+    
+    // Using "camera" hides an existing Component
+    // ReSharper disable once InconsistentNaming
+    [SerializeField] private Camera _camera;
     private Transform _transform;
     private Transform _cameraTransform;
-    private bool hitSomething = false;
+    private bool _hitSomething = false;
         
-    Interactable lastSeen = null;
 
     [SerializeField] private float maxRange;
 
     private void Awake()
     {
         _transform = transform;
-        _cameraTransform = camera.GetComponent<Transform>();
+        _cameraTransform = _camera.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class ToolController : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
         
+        Interactable lastSeen = null;
         Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * 10000f, Color.red);
         
         if (Physics.Raycast(ray, out hit, maxRange) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
@@ -39,20 +41,20 @@ public class ToolController : MonoBehaviour
                 {
                     lastSeen = hit.transform.gameObject.GetComponent<BoxInteract>();
                     lastSeen.isInteractable = true;
-                    hitSomething = true;
+                    _hitSomething = true;
                     break;
                 }
                 case "SwitchInteractable":
                 {
                     lastSeen = hit.transform.gameObject.GetComponent<SwitchInteract>();
                     lastSeen.isInteractable = true;
-                    hitSomething = true;
+                    _hitSomething = true;
                     break;
                 }
             }
 
         }
-        else if(hitSomething)
+        else if(_hitSomething)
         {
             // Null Pointer Exception impossible
             // Check by adding '  && lastSeen != null ' in if condition just above
