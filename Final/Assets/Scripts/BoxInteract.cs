@@ -9,7 +9,7 @@ public class BoxInteract : Interactable
     private Rigidbody _rigidbody;
     private Outline _outline;
     public bool isGrabbed = false;
-    [SerializeField] private Transform toolTip;
+    [SerializeField] public Transform toolTip;
     [SerializeField] private Transform cubeTransform;
     private FixedJoint _grabJoint = null;
 
@@ -25,32 +25,31 @@ public class BoxInteract : Interactable
         isGrabbed = true;
         _rigidbody.useGravity = false;
         _rigidbody.freezeRotation = true;
-        _rigidbody.isKinematic = true;
+        // _rigidbody.isKinematic = true;
         
         cubeTransform.parent = toolTip;
         _grabJoint = toolTip.gameObject.AddComponent<FixedJoint>();
-        _grabJoint.breakForce = 10000f; // Play with this value
+        _grabJoint.breakForce = 10000f; 
         _grabJoint.connectedBody = _rigidbody;
     }
     
-    void Drop()
+    private void Drop()
     {
         isGrabbed = false;
-        _rigidbody.isKinematic = false;
+        // _rigidbody.isKinematic = false;
         _rigidbody.useGravity = true;
         _rigidbody.freezeRotation = false;
         cubeTransform.parent = null;
-         
-        Destroy(_grabJoint);
+        if(_grabJoint != null) Destroy(_grabJoint);
 
     }
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (isGrabbed)
         {
-            if(Input.GetMouseButtonUp(1)) Drop();
+            if(Input.GetMouseButtonUp(1) || _grabJoint == null) Drop();
         }
         else
         {

@@ -14,7 +14,7 @@ public class ToolController : MonoBehaviour
     private Transform _transform;
     private Transform _cameraTransform;
     private bool _hitSomething = false;
-        
+    Interactable _lastSeen = null;
 
     [SerializeField] private float maxRange;
 
@@ -30,7 +30,6 @@ public class ToolController : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(_cameraTransform.position, _cameraTransform.forward);
         
-        Interactable lastSeen = null;
         Debug.DrawRay(_cameraTransform.position, _cameraTransform.forward * 10000f, Color.red);
         
         if (Physics.Raycast(ray, out hit, maxRange) && hit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
@@ -39,26 +38,26 @@ public class ToolController : MonoBehaviour
             {
                 case "CubeInteractable":
                 {
-                    lastSeen = hit.transform.gameObject.GetComponent<BoxInteract>();
-                    lastSeen.isInteractable = true;
+                    _lastSeen = hit.transform.gameObject.GetComponent<BoxInteract>();
+                    _lastSeen.isInteractable = true;
                     _hitSomething = true;
                     break;
                 }
                 case "SwitchInteractable":
                 {
-                    lastSeen = hit.transform.gameObject.GetComponent<SwitchInteract>();
-                    lastSeen.isInteractable = true;
+                    _lastSeen = hit.transform.gameObject.GetComponent<SwitchInteract>();
+                    _lastSeen.isInteractable = true;
                     _hitSomething = true;
                     break;
                 }
             }
 
         }
-        else if(_hitSomething)
+        else if(_hitSomething && _lastSeen != null)
         {
             // Null Pointer Exception impossible
             // Check by adding '  && lastSeen != null ' in if condition just above
-            lastSeen.isInteractable = false;
+            _lastSeen.isInteractable = false;
         }
         
     }
