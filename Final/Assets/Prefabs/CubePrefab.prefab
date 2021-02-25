@@ -64,6 +64,20 @@ MonoBehaviour:
   isGrabbed: 0
   toolTip: {fileID: 0}
   cubeTransform: {fileID: 8704916744560660767}
+--- !u!114 &3533586652289447412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548467253585691401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6479147646fbf44acadfc8278aa51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  automaticVoice: {fileID: 0}
+  voiceClipsScriptableObject: {fileID: 11400000, guid: c5066a5c2529f53439e12c899ed69dc4, type: 2}
 --- !u!1 &1084427429050336935
 GameObject:
   m_ObjectHideFlags: 0

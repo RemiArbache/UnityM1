@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 0
   switchAudioSource: {fileID: 1228314560738219657}
+  linkedActivable: {fileID: 0}
 --- !u!114 &6687920200595666464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +241,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SwitchInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 2224784938418311409, guid: 3b84ff98f402c874eaf65b048b41de70, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8de357ca1228c0a4782704c7276b1098, type: 2}
     - target: {fileID: 3727308194267280078, guid: 3b84ff98f402c874eaf65b048b41de70, type: 3}
       propertyPath: m_Layer
       value: 6

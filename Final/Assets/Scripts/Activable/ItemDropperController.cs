@@ -9,6 +9,7 @@ public class ItemDropperController : Activable
     [SerializeField] private GameObject companionCube;
     [SerializeField] private GameObject aperture;
     [SerializeField] private Transform toolTip;
+    [SerializeField] private AudioSource playerAudio;
     private Transform _transform;
     private Vector3 CubePosition;
     private GameObject lastCube = null;
@@ -31,7 +32,8 @@ public class ItemDropperController : Activable
 
         lastCube = Instantiate(cube, CubePosition, Quaternion.identity);
         lastCube.GetComponentInChildren<BoxInteract>().toolTip = toolTip;
-        
+        lastCube.GetComponentInChildren<BoxVoiceLineActivation>().automaticVoice = playerAudio;
+        lastCube.layer = LayerMask.NameToLayer("Interactable");
         yield return new WaitForSeconds(1f);
         
         aperture.SetActive(true);

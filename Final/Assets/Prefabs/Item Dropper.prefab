@@ -64,6 +64,7 @@ MonoBehaviour:
   companionCube: {fileID: 4845558085338309458, guid: 2d598d5fb6ed86f4f947aa30757dbe5f, type: 3}
   aperture: {fileID: 1005058370554630}
   toolTip: {fileID: 0}
+  playerAudio: {fileID: 0}
 --- !u!64 &4076484162803900730
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: ba5d1f997d5cda344b5f213b998f538e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cc918db012b71b849a754c3a2effbec3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c54d499e34b3b744bd574eb9b54f50d, type: 2}
     - target: {fileID: 919132149155446097, guid: ba5d1f997d5cda344b5f213b998f538e, type: 3}
       propertyPath: m_Name
       value: ItemDropper-Aperture
@@ -208,7 +209,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 86f2089d19222704c8db7b2a65ad3682, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cc918db012b71b849a754c3a2effbec3, type: 2}
+      objectReference: {fileID: 2100000, guid: ac62ada208464554697e157533d509ea, type: 2}
     - target: {fileID: 919132149155446097, guid: 86f2089d19222704c8db7b2a65ad3682, type: 3}
       propertyPath: m_Name
       value: ItemDropper-Body

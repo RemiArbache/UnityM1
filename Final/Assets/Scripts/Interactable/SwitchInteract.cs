@@ -5,7 +5,6 @@ public class SwitchInteract : Interactable
 {
     private Outline _outline;
     [SerializeField] private AudioSource switchAudioSource;
-    private bool _onCooldown = false;
     [SerializeField] private Activable linkedActivable;
 
     private void Awake()

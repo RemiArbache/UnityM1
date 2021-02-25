@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class SuperButtonController : MonoBehaviour
 {
-    [UsedImplicitly]
-    private bool _switchActive = false;
-
     [SerializeField] private Activable linkedActivable;
 
     private const float SwitchActivationWeight = 2f;
